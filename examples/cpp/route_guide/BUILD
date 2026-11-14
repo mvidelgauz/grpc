@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
 licenses(["notice"])
 
 cc_library(
@@ -24,6 +27,7 @@ cc_library(
     deps = [
         "//:grpc++",
         "//examples/protos:route_guide",
+        "@com_google_absl//absl/log",
     ],
 )
 
@@ -38,6 +42,8 @@ cc_binary(
         ":route_guide_helper",
         "//:grpc++",
         "//examples/protos:route_guide",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/log:initialize",
     ],
 )
 
@@ -52,6 +58,8 @@ cc_binary(
         ":route_guide_helper",
         "//:grpc++",
         "//examples/protos:route_guide",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/log:initialize",
     ],
 )
 
@@ -66,6 +74,8 @@ cc_binary(
         ":route_guide_helper",
         "//:grpc++",
         "//examples/protos:route_guide",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/log:initialize",
     ],
 )
 
@@ -80,5 +90,9 @@ cc_binary(
         ":route_guide_helper",
         "//:grpc++",
         "//examples/protos:route_guide",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/log",
+        "@com_google_absl//absl/log:globals",
+        "@com_google_absl//absl/log:initialize",
     ],
 )
